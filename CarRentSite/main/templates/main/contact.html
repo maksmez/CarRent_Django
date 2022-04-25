@@ -1,0 +1,80 @@
+{% extends 'main/pattern.html' %}
+{% load static %}
+{% block title %}
+Контакты CarRent
+{% endblock %}
+{% block description %}
+<meta name="description" content="
+Предоставление услуг по аренде автомобилей в Иркутске. Главная компания по прокату авто. 
+Наши телефоны +79241323456 +79249846134. E-mail: infocarrent@mail.ru. Веб-сайт: CarRent.ru г. Иркутск. Адрес нашего офиса: Иркутск, ул. Ленина 11 CarRent. 
+Аренда авто разных категорий CarRent Иркутск.">
+{% endblock %}
+{% block openg %}
+    <meta property="og:title" content="Контакты компании CarRent" />
+    <meta property="og:description" content="Предоставление услуг по аренде автомобилей в Иркутске. Главная компания по прокату авто. 
+Наши телефоны +79241323456 +79249846134. E-mail: infocarrent@mail.ru. Веб-сайт: CarRent.ru г. Иркутск. Адрес нашего офиса: Иркутск, ул. Ленина 11 CarRent. 
+Аренда авто разных категорий CarRent Иркутск." />
+    <meta property="og:site_name" content="Аренда автомобилей CarRent Иркутск" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://maksmez.beget.tech/contact/" />
+    <meta property="og:image" content="http://maksmez.beget.tech/static/main/img/slider/autorent.jpg" />
+{% endblock %}
+{% block jsonld %}
+<script type='application/ld+json'> 
+{
+  "@context": "http://www.schema.org",
+  "@type": "WebSite",
+  "name": "Контакты компании CarRent",
+  "alternateName": "Аренда автомобилей CarRent Иркутск",
+  "url": "http://maksmez.beget.tech/contact/"
+}
+ </script>
+{% endblock %}
+{% block content %}
+  <main>
+      <div id="main-container">
+         <div class="bread2">
+            <ul class="breadcrumbs">
+               <li class="breadcrumbs-item">
+                  <a class="breadcrumbs-link" href="index.html">Главная</a>
+               </li>
+               <li class="breadcrumbs-item">
+                  <span class="breadcrumbs-link  current">Контакты</span>
+               </li>
+            </ul>
+         </div>
+         <h1>Контактные данные CarRent</h1>
+         <div class="BoxContact">
+            <div itemscope itemtype="http://schema.org/Organization" class="Contact">
+               <p itemprop="name">CarRent</p>
+               <p itemprop="address">664009, Иркутск, улица Ленина,11</p>
+               <p itemprop="telephone">+79241323456</p>
+               <p itemprop="telephone">+79249846134</p>
+               <p itemprop="email">E-mail: infocarrent@mail.ru</p>
+               <p>Мы работаем без обеда и выходных:</p>
+               <p>Пн-Вс с 10:00-19:00</p>
+            </div>
+            <div class="Feedback">
+               <h2 class="MainHeader">Написать нам письмо</h2>
+               <form action="{% url 'contact_add_feedback'%}" method="POST" class="form_mail">
+                  {% csrf_token %}
+                  <div class="input_mail">
+                     <p><input type="text" placeholder="Ваше имя" name="Name"  required></p>
+                     <p><input type="text" placeholder="Телефон или E-mail" name="PhoneEmail" required></p>
+                     <p><input type="submit" value="Отправить"></p>
+                  </div>
+                  <div class="textarea_mail">
+                     <textarea placeholder="Сообщение" name="Message" required maxlength="250"></textarea>
+                     <p><input type="submit" name="contact" value="Отправить"></p>
+                  </div>
+               </form>
+            </div>
+         </div>
+         <div class="yamap_contact">
+            <iframe
+               src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaa21ee38ac0e4f78aec1c1b64752f2ddf8a44b235c21552814222be2f65da453&amp;source=constructor"
+               width="100%" height="450" frameborder="0" ></iframe>
+         </div>
+      </div>
+   </main>
+   {% endblock %}
